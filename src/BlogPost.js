@@ -22,8 +22,6 @@ const BlogPost = (props) => {
     </div>
   );
 };
-function deletePost() {
-  //deletes a blog post
-}
+function deletePost() {}
 
 export default BlogPost;

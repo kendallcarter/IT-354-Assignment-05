@@ -1,16 +1,72 @@
 import React from 'react';
 import './style.css';
-import axios from 'axios';
 import BlogPost from './BlogPost.js';
+import axios from 'axios';
 
 export default function App() {
-  const userList = users.map((user) => <li>{user}</li>);
-  const [users, setUsers] = useState([]);
-  const [posts, setPosts] = useState([]);
+  // const userList = users.map((user) => <li>{user}</li>);
+  // const [users, setUsers] = useState([]);
+  // const [posts, setPosts] = useState([]);
+  const getUsers = async () => {
+    // try {
+    //   const response = await axios.get(
+    //     'https://my-json-server.typicode.com/keschae/blog/users'
+    //   );
+    //   setUsers(response.data);
+    //   // console.log(response.data);
+    //   console.log('Sucessful Get');
+    //   console.log('users: ', users);
+    //   // return response.data;
+    // } catch (error) {
+    //   console.error(error);
+    // }
+  };
+
+  function getBlogPosts() {
+    //Populates Blog Posts
+  }
+
+  function postBlogPost() {
+    //Posts a blog post
+  }
+
+  function Dropdown(props) {
+    return (
+      <div>
+        <h3>User Dropdown</h3>
+
+        <select>
+          {props.users.map((users, index) => (
+            <Options key={index} users={users} />
+          ))}
+        </select>
+      </div>
+    );
+  }
+
+  function Options(props) {
+    let i = 1;
+    return <option value={i}>{props.users.name}</option>;
+    i++;
+  }
+
+  // fetch('https://my-json-server.typicode.com/keschae/blog/db')
+  //   .then((response) => response.json())
+  //   .then((result) => {
+  //     var result = document.userId;
+  //   });
+
+  //get authors
+
+  //get request when button is pushed to retruieve blog posts
+
+  //post for new blog posts
+
+  //delete for deleted blog posts
 
   return (
+    //{getUsers}
     <div>
-      {getUsers()}
       <div className="container">
         <div className="row">
           <div className="col-md-6 mb-4">
@@ -71,7 +127,7 @@ export default function App() {
               </div>
             </div>
 
-            <BlogPost text={result} />
+            <BlogPost text="Noy" />
 
             <BlogPost text="Third boyyyy" />
 
@@ -82,40 +138,3 @@ export default function App() {
     </div>
   );
 }
-
-const getUsers = async () => {
-  try {
-    const response = await axios.get(
-      'https://my-json-server.typicode.com/keschae/blog/users'
-    );
-    setUsers(response.data);
-    // console.log(response.data);
-    console.log('Sucessful Get');
-    console.log('users: ', users);
-    // return response.data;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-function getBlogPosts() {
-  //Populates Blog Posts
-}
-
-function postBlogPost() {
-  //Posts a blog post
-}
-
-fetch('https://my-json-server.typicode.com/keschae/blog/db')
-  .then((response) => response.json())
-  .then((result) => {
-    var result = document.userId;
-  });
-
-//get authors
-
-//get request when button is pushed to retruieve blog posts
-
-//post for new blog posts
-
-//delete for deleted blog posts
